@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Sucursal implements CSV{
     private static int proxNumSucursal;
     private int numSucursal;
-    private HashMap<int, Empleado> empleados;
+    private HashMap<Integer, Empleado> empleados;
 
     public Empleado buscaEmpleado(int numEmpleado) {
         return empleados.get(numEmpleado);

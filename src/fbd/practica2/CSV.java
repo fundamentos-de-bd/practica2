@@ -5,7 +5,7 @@ Interfaz para transformar un objeto a formato CVV.
 @version 0.1
 @since 0.1
 */
-public interface ToCSV {
+public interface CSV {
 
     /**
     Representación como cadena en formato CSV.

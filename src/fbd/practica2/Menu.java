@@ -1,19 +1,19 @@
 package fbd.practica2;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class Menu {
-    private Map<int, Sucursal>;
+    private Map<Integer, Sucursal> cosaConSucursales;
+    
+    public static void agregaEmpleado(){};
 
-    public static agregaEmpleado(){}
+    public static void eliminaEmpleado(){};
 
-    public static eliminaEmpleado(){}
+    public static void modificaEmpleado(){};
 
-    public static modificaEmpleado(){}
+    public static void buscaEmpleado(){};
 
-    public static buscaEmpleado(){}
-
-    public static menu(){}
+    public static void menu(){};
 
 
 }

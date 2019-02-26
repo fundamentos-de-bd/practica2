@@ -2,7 +2,7 @@ package fbd.practica2;
 
 import java.util.Map;
 
-public class Empleado implements CVS{
+public class Empleado implements CSV{
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
@@ -30,7 +30,7 @@ public class Empleado implements CVS{
     }
 
     public String getApellidoPaterno(){
-        return nombre;
+        return apellidoPaterno;
     }
 
     public void setApellidoPaterno(String nuevoApellido){
@@ -38,7 +38,7 @@ public class Empleado implements CVS{
     }
 
     public String getApellidoMaterno(){
-        return nombre;
+        return apellidoMaterno;
     }
 
     public void setApellidoMaterno(String nuevoApellido){
@@ -46,7 +46,7 @@ public class Empleado implements CVS{
     }
 
     public String getPuesto(){
-        return nombre;
+        return puesto;
     }
 
     public void setPuesto(String nuevoPuesto){
@@ -54,7 +54,7 @@ public class Empleado implements CVS{
     }
 
     public double getSalario(){
-        return nombre;
+        return salario;
     }
 
     public void setSalario(double nuevoSalario){
@@ -62,7 +62,7 @@ public class Empleado implements CVS{
     }
 
     public Sucursal getSucursal(){
-        return nombre;
+        return sucursal;
     }
 
     public void setSucursal(Sucursal nuevaSucursal){
@@ -70,6 +70,6 @@ public class Empleado implements CVS{
     }
 
     public int getNumeroEmpleado(){
-        return nombre;
+        return numeroEmpleado;
     }
 }
