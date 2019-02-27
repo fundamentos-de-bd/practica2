@@ -8,7 +8,7 @@ public class Empleado implements CSV{
     private String apellidoMaterno;
     private String puesto;
     private double salario;
-    private Sucursal sucursal;
+    private int numSucursal;
     private int numeroEmpleado;
     private static int proxNumEmpleado = 0;
 
@@ -61,15 +61,19 @@ public class Empleado implements CSV{
         salario = nuevoSalario;
     }
 
-    public Sucursal getSucursal(){
-        return sucursal;
+    public int getSucursal(){
+        return numSucursal;
     }
 
-    public void setSucursal(Sucursal nuevaSucursal){
-        sucursal = nuevaSucursal;
+    public void setSucursal(int nuevoNumSucursal){
+        numSucursal = nuevoNumSucursal;
     }
 
     public int getNumeroEmpleado(){
         return numeroEmpleado;
+    }
+
+    public String toString() {
+        
     }
 }
