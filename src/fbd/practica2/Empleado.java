@@ -1,24 +1,31 @@
 package fbd.practica2;
 
-import java.util.Map;
-
 public class Empleado implements CSV{
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
     private String puesto;
     private double salario;
-    private Sucursal sucursal;
+    private int numSucursal;
     private int numeroEmpleado;
     private static int proxNumEmpleado = 0;
 
     public Empleado(String nombre, String apellidoPaterno, String apellidoMaterno, 
-    String puesto, double salario, Sucursal sucursal) {
-        
+    String puesto, double salario, int sucursal) {
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.puesto = puesto;
+        this.salario = salario;
+        numSucursal = sucursal;
+        //registros.put(proxNumEmpleado, this);
+        proxNumEmpleado += 1;
     }
 
-    public String toCSV() {
-        return "";
+    public String toCSV(){
+        return nombre + ", " + apellidoPaterno + ", " + apellidoMaterno + ", " + puesto + ", "
+        + String.valueOf(salario) + ", " + String.valueOf(salario) + ", " + String.valueOf(salario) 
+        + ".";
     }
 
     public String getNombre(){
@@ -61,15 +68,29 @@ public class Empleado implements CSV{
         salario = nuevoSalario;
     }
 
-    public Sucursal getSucursal(){
-        return sucursal;
+    public int getNumSucursal(){
+        return numSucursal;
     }
 
-    public void setSucursal(Sucursal nuevaSucursal){
-        sucursal = nuevaSucursal;
+    public void setNumSucursal(int nuevaSucursal){
+        numSucursal = nuevaSucursal;
     }
 
     public int getNumeroEmpleado(){
         return numeroEmpleado;
+    }
+    
+    /**Documentación.
+    Esto es una breve descripción.
+    @param g - una cosa.
+    @param f - otra cosa.
+    @return o - cosa de resultado descrito arriba.
+    */
+    public static void setNumeroEmpleados(int a){
+        proxNumEmpleado = a;
+    }
+    
+    public static int getNumeroEmpleados(){
+        return proxNumEmpleado;
     }
 }
