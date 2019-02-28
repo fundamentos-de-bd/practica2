@@ -1,5 +1,6 @@
 package fbd.practica2;
-
+public class Datos{}
+/*
 import java.io.*;
 import org.json.*;
 
@@ -44,4 +45,4 @@ public class Datos{
         }
     }
     
-}
+}*/
