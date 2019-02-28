@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="practica2" default="practica2.jar" basedir="." >
 
-  <property name="build.dir" value="build" />
+  <property name="build.dir" value="build" /> 
   <property name="src.dir"   value="src" />
-  <property name="lib.dir"   value="lib" />
+  <!--<property name="lib.dir"   value="lib" /> -->
   <property name="doc.dir"   value="doc" />
 
   <target name="practica2.jar" depends="compile.practica2">
@@ -24,11 +24,11 @@
            includeantruntime="false"
            deprecation="true"
            nowarn="off">
-      <classpath>
+      <!--<classpath>
         <fileset dir="${lib.dir}">
           <include name="*.jar"/>
         </fileset>
-      </classpath>
+      </classpath> -->
       <compilerarg value="-Xlint:unchecked"/>
     </javac>
   </target>
