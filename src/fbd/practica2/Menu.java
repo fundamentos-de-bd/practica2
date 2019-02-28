@@ -3,17 +3,28 @@ package fbd.practica2;
 import java.util.Map;
 
 public class Menu {
-    private Map<Integer, Sucursal> cosaConSucursales;
-    
-    public static void agregaEmpleado(){};
+    Manejador manejador;
 
-    public static void eliminaEmpleado(){};
+    public static void iniciaMenu(){}
 
-    public static void modificaEmpleado(){};
+    public static void menuPrincipal() {
 
-    public static void buscaEmpleado(){};
+    }
 
-    public static void menu(){};
+    public static void menuElimina(){
 
+    }
+
+    public static void menuAgrega() {
+
+    }
+
+    public static void menuBuscar(){
+
+    }
+
+    public static void menuModifica(){
+
+    }
 
 }

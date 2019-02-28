@@ -18,14 +18,11 @@ public class Empleado implements CSV{
         this.puesto = puesto;
         this.salario = salario;
         numSucursal = sucursal;
-        //registros.put(proxNumEmpleado, this);
         proxNumEmpleado += 1;
     }
 
     public String toCSV(){
-        return nombre + ", " + apellidoPaterno + ", " + apellidoMaterno + ", " + puesto + ", "
-        + String.valueOf(salario) + ", " + String.valueOf(salario) + ", " + String.valueOf(salario) 
-        + ".";
+        return toString();
     }
 
     public String getNombre(){
@@ -75,6 +72,14 @@ public class Empleado implements CSV{
     public void setNumSucursal(int nuevaSucursal){
         numSucursal = nuevaSucursal;
     }
+    
+    public int getSucursal(){
+        return numSucursal;
+    }
+
+    public void setSucursal(int nuevoNumSucursal){
+        numSucursal = nuevoNumSucursal;
+    }
 
     public int getNumeroEmpleado(){
         return numeroEmpleado;
@@ -92,5 +97,10 @@ public class Empleado implements CSV{
     
     public static int getNumeroEmpleados(){
         return proxNumEmpleado;
+    }
+    
+    public String toString() {
+        return nombre + ", " + apellidoPaterno + ", " + apellidoMaterno + ", " + puesto + ", "
+        + String.valueOf(salario) + ", " + String.valueOf(salario) + ", " + String.valueOf(salario);
     }
 }
