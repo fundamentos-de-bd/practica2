@@ -22,7 +22,9 @@ public class Empleado implements CSV{
     }
 
     public String toCSV(){
-        return toString();
+        return nombre + ", " + apellidoPaterno + ", " + apellidoMaterno + ", " 
+        + puesto + ", " + String.valueOf(salario) + ", " 
+        + String.valueOf(salario) + ", " + String.valueOf(salario);
     }
 
     public String getNombre(){
@@ -72,16 +74,8 @@ public class Empleado implements CSV{
     public void setNumSucursal(int nuevaSucursal){
         numSucursal = nuevaSucursal;
     }
-    
-    public int getSucursal(){
-        return numSucursal;
-    }
 
-    public void setSucursal(int nuevoNumSucursal){
-        numSucursal = nuevoNumSucursal;
-    }
-
-    public int getNumeroEmpleado(){
+    public int getNumEmpleado(){
         return numeroEmpleado;
     }
     
@@ -100,7 +94,9 @@ public class Empleado implements CSV{
     }
     
     public String toString() {
-        return nombre + ", " + apellidoPaterno + ", " + apellidoMaterno + ", " + puesto + ", "
-        + String.valueOf(salario) + ", " + String.valueOf(salario) + ", " + String.valueOf(salario);
+        return "Empleado número: " + numeroEmpleado + "\n Nombre: " + nombre
+        + " " + apellidoPaterno + " " + apellidoMaterno + "\n Puesto: " + 
+        puesto + "\n Salario: " + salario + "\n Sucursal: " + numSucursal; 
+        
     }
 }
