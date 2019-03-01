@@ -32,6 +32,7 @@ public class Empleado implements CSV{
         this.puesto = puesto;
         this.salario = salario;
         numSucursal = sucursal;
+        numeroEmpleado = proxNumEmpleado;
         proxNumEmpleado += 1;
     }
 
