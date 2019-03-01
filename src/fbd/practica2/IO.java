@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collection;
 
+/**
+ * Clase para leer y escribr desde archivos a objetos en formato CSV
+ */
 public class IO {
     
     /**
@@ -12,6 +15,8 @@ public class IO {
     * Busca el archivo con el nombre proporcionado y lo lee siguiendo el formato esperado.
     * en caso de que ocurra un error se aborta la lectura y regresa null.
     * @param nombrearchivo - String con el nombre del archivo a leer.
+    * @param <T> El tipo de objeto que se va a leer. Tiene que tener implemetnar 
+    * @see fbd.practica2.CSV
     * @return Map que contiene los datos con sus Id's como llaves ó null si ocurre algo.
     */
     public static <T extends CSV> HashMap<Integer, T> leer(String nombrearchivo){
@@ -47,6 +52,7 @@ public class IO {
     * contenidos en el Map. Requiere que los valores del Map implementen "CSV".
     * @param nombrearchivo - nombre con el cual se quiere guardar los datos.
     * @param c - Map que contiene los datos como valores.
+    * @param <T> El tipo de objeto que se va a eescribir. Tiene que tener implemetnar 
     * @return true si se logró reescribir el archivo de la base de datos (Datos.json)
     */
     public static <T extends CSV> boolean escribir(String nombrearchivo, HashMap<Integer, T> c){

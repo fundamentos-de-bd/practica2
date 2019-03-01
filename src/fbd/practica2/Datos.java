@@ -2,10 +2,14 @@ package fbd.practica2;
 
 import java.io.*;
 
+/**
+ * Faker para poblar los archivos a manera de demo
+ */
 public class Datos{
-    
-    //Este método crea un archivo con 90 Empleado y otro con 1 Sucursal
-    //Esta clase sólo sirve para crear un Empleados.csv y Sucursales.csv demo.
+    /**
+     * Este método crea un archivo con 90 Empleado y otro con 1 Sucursal
+     * Esta clase sólo sirve para crear un Empleados.csv y Sucursales.csv demo.
+     */
     public static void testCSV(){
         Empleado[] aa = new Empleado[90];
         for(int k = 0; k < 90; ++k){
