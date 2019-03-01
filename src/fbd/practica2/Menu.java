@@ -4,6 +4,10 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.HashMap;
 
+/**
+Clase para mostrar y pedir información desde la terminal.
+Es la vista.
+ */
 public class Menu {
     private static Manejador manejador;
     private static Scanner s;
@@ -11,6 +15,11 @@ public class Menu {
     private static final String nomArchivoEmpleados = "empleados.csv";
     private static final String nomArchivoSucursales = "sucursales.csv";
 
+    /**
+    Lee los archivos, crea un manejador con los datos obtenidos, e inicia los 
+    menúes.
+    Al acabar los menúes, guarda la información.
+     */
     public static void iniciaMenu(){
         try{
             HashMap<Integer, Empleado> empleados = IO.leer(nomArchivoEmpleados);
@@ -30,6 +39,10 @@ public class Menu {
         }
     }
 
+    /**
+    Da la bienvienida y pide el tipo de entidad con el que se quiere trabajar.
+    Después llama a @see fbd.practica2.Menu#menuAcciones()
+     */
     private static void menuPrincipal() {
         int opcionEntidad = -1;
         String bienvenida = "Bienvenido al sistema manejador\n";
@@ -56,6 +69,10 @@ public class Menu {
         }
     }
 
+    /**
+    Pide el tipo de acción que se quiere realizar. Y llama al menú que se 
+    encargará de realizar esa acción.
+     */
     private static void menuAcciones(int entidad) {
         int opcion = -1;
         while(opcion != 5){
@@ -83,6 +100,9 @@ public class Menu {
         }
     }
 
+    /**
+    Pide el identificar del ejemplar a eliminar y lo elimina.
+     */
     private static void menuElimina(int entidad){
         try {
             String menu = "";
@@ -108,6 +128,9 @@ public class Menu {
         }
     }
 
+    /**
+    Pide la información necesario para agregar cierta instanci y la agrega
+     */
     private static void menuAgrega(int entidad) {
         try {
             String menu = "";
@@ -141,6 +164,10 @@ public class Menu {
         }
     }
 
+    /**
+    Pide el identificaor de algún empleado y devuelve la información de la
+    sucursal donde trabaja
+     */
     private static void menuBuscar(int entidad){
         try {
             String menu = "";
@@ -156,6 +183,9 @@ public class Menu {
         }
     }
 
+    /**
+    Pide un identificador y el número de atributo que se desea modificar
+     */
     private static void menuModifica(int entidad){
         try {
             String menu = "";
@@ -189,5 +219,4 @@ public class Menu {
             System.out.println(e.getMessage());
         }
     }
-
 }
