@@ -4,7 +4,7 @@
   <property name="build.dir" value="build" /> 
   <property name="src.dir"   value="src" />
   <!--<property name="lib.dir"   value="lib" /> -->
-  <property name="doc.dir"   value="doc" />
+  <property name="gendoc.dir"   value="gendoc" />
 
   <target name="practica2.jar" depends="compile.practica2">
     <jar jarfile="practica2.jar">
@@ -34,11 +34,11 @@
   </target>
 
   <target name="doc" depends="compile.practica2">
-    <mkdir dir="${doc.dir}"/>
+    <mkdir dir="${gendoc.dir}"/>
     <javadoc packagenames="fbd.*"
              sourcepath="src"
              defaultexcludes="yes"
-             destdir="${doc.dir}"
+             destdir="${gendoc.dir}"
              charset="UTF-8"
              author="false"
              version="false"
