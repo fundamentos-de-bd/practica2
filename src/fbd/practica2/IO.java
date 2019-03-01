@@ -20,7 +20,7 @@ public class IO {
     * @return Map que contiene los datos con sus Id's como llaves ó null si ocurre algo.
     */
     @SuppressWarnings("unchecked")
-    public static <T extends CSV> HashMap<Integer, T> leer(String nombrearchivo){
+    public static <T extends CSV> HashMap<Integer, T> leer(File nombrearchivo){
         HashMap<Integer, T> cosa = new HashMap<Integer, T>();
         String linea = "";
         try(
@@ -56,7 +56,7 @@ public class IO {
     * @param <T> El tipo de objeto que se va a eescribir. Tiene que tener implemetnar 
     * @return true si se logró reescribir el archivo de la base de datos (Datos.json)
     */
-    public static <T extends CSV> boolean escribir(String nombrearchivo, HashMap<Integer, T> c){
+    public static <T extends CSV> boolean escribir(File nombrearchivo, HashMap<Integer, T> c){
         try(
             FileWriter ff = new FileWriter(nombrearchivo, false);
             )

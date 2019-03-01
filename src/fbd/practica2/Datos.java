@@ -11,6 +11,9 @@ public class Datos{
      * Esta clase sólo sirve para crear un Empleados.csv y Sucursales.csv demo.
      */
     public static void testCSV(){
+        new File("./database").mkdirs();
+        File f = new File("./database/empleados.csv");
+        File t = new File("./database/sucursales.csv");
         Empleado[] aa = new Empleado[90];
         for(int k = 0; k < 90; ++k){
             String p = String.valueOf(k);
@@ -19,8 +22,8 @@ public class Datos{
             aa[k] = new Empleado("John", "Doe", p, "DummyRole", 0.01, 0);
         }
         try(
-            FileWriter ff = new FileWriter("empleados.csv", false); 
-            FileWriter tt = new FileWriter("sucursales.csv", false)
+            FileWriter ff = new FileWriter(f); 
+            FileWriter tt = new FileWriter(t)
             ){
             for(int k = 0; k < 90; ++k){
                 ff.write(aa[k].toCSV());

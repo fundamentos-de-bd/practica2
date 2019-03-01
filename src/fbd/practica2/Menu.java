@@ -3,6 +3,7 @@ package fbd.practica2;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.HashMap;
+import java.io.File;
 
 /**
 Clase para mostrar y pedir información desde la terminal.
@@ -12,8 +13,10 @@ public class Menu {
     private static Manejador manejador;
     private static Scanner s;
 
-    private static final String nomArchivoEmpleados = "empleados.csv";
-    private static final String nomArchivoSucursales = "sucursales.csv";
+    private static final File f = new File("./database/empleados.csv");
+    private static final File t = new File("./database/sucursales.csv");
+    //private static final String nomArchivoEmpleados = "empleados.csv";
+    //private static final String nomArchivoSucursales = "sucursales.csv";
 
     /**
     Lee los archivos, crea un manejador con los datos obtenidos, e inicia los 
@@ -34,8 +37,8 @@ public class Menu {
     */
     public static boolean guardarBD(){
         try {
-            IO.escribir(nomArchivoEmpleados, manejador.getEmpleados());
-            IO.escribir(nomArchivoSucursales, manejador.getSucursales());
+            IO.escribir(f, manejador.getEmpleados());
+            IO.escribir(t, manejador.getSucursales());
         } catch(Exception e) {
             System.out.println(" --Error al intentar guardar los archivos");
             return false;
@@ -52,8 +55,8 @@ public class Menu {
     */
     public static boolean leerBD(){
         try{
-            HashMap<Integer, Empleado> empleados = IO.leer(nomArchivoEmpleados);
-            HashMap<Integer, Sucursal> sucursales = IO.leer(nomArchivoSucursales);
+            HashMap<Integer, Empleado> empleados = IO.leer(f);
+            HashMap<Integer, Sucursal> sucursales = IO.leer(t);
             manejador = new Manejador();
             manejador.setEmpleados(empleados);
             manejador.setSucursales(sucursales);
@@ -77,8 +80,8 @@ public class Menu {
             opciones += "Elija una opción\n";
             opciones += "  (1) Empleados\n";
             opciones += "  (2) Sucursal\n";
-            opciones += "  (3) Recargar datos (desecha datos actuales)";
-            opciones += "  (4) Guardar los datos actuales (sobreescribe archivos)";
+            opciones += "  (3) Recargar datos (desecha datos actuales)\n";
+            opciones += "  (4) Guardar los datos actuales (sobreescribe archivos)\n";
             opciones += "  (5) Salir";
             System.out.println(opciones);
 
