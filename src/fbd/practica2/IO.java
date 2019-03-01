@@ -14,6 +14,7 @@ public class IO {
     * @param nombrearchivo - String con el nombre del archivo a leer.
     * @return Map que contiene los datos con sus Id's como llaves ó null si ocurre algo.
     */
+    @SuppressWarnings("unchecked")
     public static <T extends CSV> HashMap<Integer, T> leer(String nombrearchivo){
         HashMap<Integer, T> cosa = new HashMap<Integer, T>();
         String linea = "";

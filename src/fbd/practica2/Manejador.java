@@ -82,7 +82,7 @@ public class Manejador {
     public void eliminaEmpleado(int numEmpleado) throws Exception{
         Empleado e = empleados.remove(numEmpleado);
         if (e == null) {
-            throw new Exception("Número de empleado no válido");
+            throw new Exception(" --Número de empleado no válido");
         }
     }
 
@@ -94,7 +94,7 @@ public class Manejador {
     public void eliminaSucursal(int numSucursal) throws Exception{
         Sucursal s = sucursales.remove(numSucursal);
         if (s == null) {
-            throw new Exception("Número de sucursal no válidos");
+            throw new Exception(" --Número de sucursal no válidos");
         }
     }
     /**
@@ -108,7 +108,7 @@ public class Manejador {
     throws Exception{
         Empleado e = empleados.get(numEmpleado);
         if(e == null) {
-            throw new Exception("Número de empleado no válido");
+            throw new Exception(" --Número de empleado no válido");
         }
         try {
             switch(t){
@@ -122,11 +122,16 @@ public class Manejador {
                 break;
                 case 5: e.setSalario(Double.valueOf(nuevoP));
                 break;
-                case 6: e.setNumSucursal(Integer.valueOf(nuevoP));
+                case 6:
+                    if(sucursales.containsKey(Integer.valueOf(nuevoP) ) ){
+                        e.setNumSucursal(Integer.valueOf(nuevoP));
+                    }else{
+                        throw new Exception(" --Número de sucursal no-valido");
+                    }
                 break;
             }
         } catch(Exception ex) {
-            throw new Exception("Datos a modificar no válidos");
+            throw new Exception(" --Datos a modificar no válidos\n");
         }
     }
 
@@ -139,7 +144,7 @@ public class Manejador {
     public void modificaSucursal(int numSucursal, String nombre) throws Exception{
         Sucursal s = sucursales.get(numSucursal);
         if(s == null) {
-            throw new Exception("Identificador no válido");
+            throw new Exception(" --Identificador no válido");
         }
         s.setNombre(nombre);
     }
@@ -152,11 +157,11 @@ public class Manejador {
     public Sucursal buscaPorEmpleado(int numEmpleado) throws Exception{
         Empleado e = empleados.get(numEmpleado);
         if(e == null) {
-            throw new Exception("Indentificador no válido");
+            throw new Exception(" --Indentificador no válido");
         }
         Sucursal s = sucursales.get(e.getNumSucursal());
         if(s == null) {
-            throw new Exception("Sucursal no existente");
+            throw new Exception(" --Sucursal no existente");
         }
         return s;
     }

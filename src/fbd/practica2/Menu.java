@@ -21,6 +21,36 @@ public class Menu {
     Al acabar los menúes, guarda la información.
      */
     public static void iniciaMenu(){
+        leerBD();
+        menuPrincipal();
+        guardarBD();
+    }
+    
+    /**
+    * Método que escribe los datos actuales del manejador en los archvios de BD.
+    * Siempre sobreescribe los archivos empleados.csv y sucursales.csv.
+    * Imprime un mensaje en consola en caso de algún error.
+    * @return true - si se logró, false de otro modo.
+    */
+    public static boolean guardarBD(){
+        try {
+            IO.escribir(nomArchivoEmpleados, manejador.getEmpleados());
+            IO.escribir(nomArchivoSucursales, manejador.getSucursales());
+        } catch(Exception e) {
+            System.out.println(" --Error al intentar guardar los archivos");
+            return false;
+        }
+        return true;
+    }
+    
+    
+    /**
+    * Método que lee los datos actuales en los archivos de BD y los toma en en Manejador.
+    * Se desechan los datos actuales del Manejador..
+    * Imprime un mensaje en consola en caso de algún error.
+    * @return true - si se logró, false de otro modo.
+    */
+    public static boolean leerBD(){
         try{
             HashMap<Integer, Empleado> empleados = IO.leer(nomArchivoEmpleados);
             HashMap<Integer, Sucursal> sucursales = IO.leer(nomArchivoSucursales);
@@ -28,15 +58,10 @@ public class Menu {
             manejador.setEmpleados(empleados);
             manejador.setSucursales(sucursales);
         }catch(Exception e){
-            System.out.println("Error al intentar cargar los archivos");
+            System.out.println(" --Error al intentar cargar los archivos");
+            return false;
         }
-        menuPrincipal();
-        try {
-            IO.escribir(nomArchivoEmpleados, manejador.getEmpleados());
-            IO.escribir(nomArchivoSucursales, manejador.getSucursales());
-        } catch(Exception e) {
-            System.out.println("Error al intentar guardar los archivos");
-        }
+        return true;
     }
 
     /**
@@ -47,12 +72,14 @@ public class Menu {
         int opcionEntidad = -1;
         String bienvenida = "Bienvenido al sistema manejador\n";
         System.out.println(bienvenida);
-        while(opcionEntidad != 3) {
+        while(opcionEntidad != 5) {
             String opciones = "";
             opciones += "Elija una opción\n";
-            opciones += "(1) Empleados\n";
-            opciones += "(2) Sucursal\n";
-            opciones += "(3) Salir";
+            opciones += "  (1) Empleados\n";
+            opciones += "  (2) Sucursal\n";
+            opciones += "  (3) Recargar datos (desecha datos actuales)";
+            opciones += "  (4) Guardar los datos actuales (sobreescribe archivos)";
+            opciones += "  (5) Salir";
             System.out.println(opciones);
 
             s = new Scanner(System.in);
@@ -62,9 +89,13 @@ public class Menu {
                 case 1:
                 case 2: menuAcciones(opcionEntidad);
                 break;
-                case 3:
+                case 3: leerBD();
                 break;
-                default : System.out.println("Opción no válida");
+                case 4: guardarBD();
+                break;
+                case 5:
+                break;
+                default : System.out.println("  ----Opción no válida----");
             }
         }
     }
@@ -77,11 +108,11 @@ public class Menu {
         int opcion = -1;
         while(opcion != 5){
             String menu = "Elija una opción\n";
-            menu += "(1) Agregar\n";
-            menu += "(2) Eliminar\n";
-            menu += "(3) Modificar\n";
-            menu += "(4) Buscar sucursal por medio de empleado\n";
-            menu += "(5) Salir\n";
+            menu += "  (1) Agregar\n";
+            menu += "  (2) Eliminar\n";
+            menu += "  (3) Modificar\n";
+            menu += "  (4) Buscar sucursal por medio de empleado\n";
+            menu += "  (5) Salir\n";
             System.out.println(menu);
 
             s = new Scanner(System.in);
@@ -97,7 +128,7 @@ public class Menu {
                 case 4: menuBuscar(entidad);
                 case 5: opcion = 5;
                 break;
-                default : System.out.println("Opción no válida");
+                default : System.out.println("  ----Opción no válida----");
             }
         }
     }
@@ -115,7 +146,7 @@ public class Menu {
                 s = new Scanner(System.in);
                 int numeroEmpleado = s.nextInt();
                 manejador.eliminaEmpleado(numeroEmpleado);
-                System.out.println("Empleado eliminado exitosamente");
+                System.out.println("\n ¡Empleado eliminado exitosamente!");
             } else {
                 menu = "Ingrese número de sucursal";
                 System.out.println(menu);
@@ -123,7 +154,7 @@ public class Menu {
                 s = new Scanner(System.in);
                 int numeroSucursal = s.nextInt();
                 manejador.eliminaSucursal(numeroSucursal);
-                System.out.println("Sucursal eliminada exitosamente");
+                System.out.println("\n ¡Sucursal eliminada exitosamente!");
             }
         } catch(Exception e) {
             System.out.println(e.getMessage());
@@ -162,7 +193,7 @@ public class Menu {
                 manejador.agregaSucursal(nombre);
             }
         } catch(Exception e) {
-            System.out.println("Datos no válidos");
+            System.out.println(" --Operación abortada, datos no válidos");
         }
     }
 
@@ -198,12 +229,12 @@ public class Menu {
             int id = s.nextInt();
             if(entidad == 1) {
                 menu = "Elige atrubuto a modificar\n";
-                menu += "(1) Nombres\n";
-                menu += "(2) Apellido paterno\n";
-                menu += "(3) Apellido materno\n";
-                menu += "(4) Puesto\n";
-                menu += "(5) Salario\n";
-                menu += "(6) Número de sucursal";
+                menu += "  (1) Nombres\n";
+                menu += "  (2) Apellido paterno\n";
+                menu += "  (3) Apellido materno\n";
+                menu += "  (4) Puesto\n";
+                menu += "  (5) Salario\n";
+                menu += "  (6) Número de sucursal\n";
                 System.out.println(menu);
 
                 int atrMod = s.nextInt();
