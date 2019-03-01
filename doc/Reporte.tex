@@ -23,7 +23,6 @@
 }
 
 
-\usepackage{chronosys}
 
 
 
@@ -35,7 +34,7 @@
     \date{01 de Marzo del 2019}
     \maketitle
     
-    \section{Implementación del programa}\vspace{0.5cm}
+    \section{Implementación del programa en Java}\vspace{0.5cm}
     En esta practica se hace un avance del caso de uso enfoncadonos unicamente en la información de las sucursales y empleados, así que se implementa  un programa que solicita la información y lo guarda en un archivo CSV.
     
     De acuerdo a los requerimientos solicitados en el caso de uso, para los empleados se almacena su información básica: nombre, apellido paterno, apellido materno, puesto salario y sucursal a la que pertenece, se pueden guardar empleados siempre y cuando esten asociados a una sucursal existente, además al registrar un empleado se le genera  un identificador.
@@ -49,12 +48,37 @@
     \begin{enumerate}
     	\item {\bf{Sucursal}} \\
     	
-    	Esta clase tiene el metodo toCSV() que permite que los archivos puedan ser leidos y escritos.
+    	La clase Sucursal simula la entidad sucursal, esta clase implementa la interfaz CSV. El constructor correspondiente a esta clase es  {\texttt{Sucursal}} que recibe un String que representa el nombre del objeto Sucursal y en dicho constructor inicializa un identificador cuyo valor depende de la variable estática proxNumSucursal que se incrementa auntomaticamente en uno al crear una nueva instancia. En seguida se mencionan los principales metodos de esta clase:
+    	
+    	\begin{itemize}
+    		
+    		\item {\texttt{toCSV()}}. Este método permite regresar una representación de la instancia Sucursal en formato CSV.
+    	\end{itemize} 
+    	
+    	
     	
     	\item {\bf{Empleado}}\\
     	
+    	Al igual que la clase Sucursal, la clase Empleado modela la entidad empleado, también implementa la interfaz CSV. El constructor para esta clase recibe varios parametros relacionados con la información básica de un empleado, de igual forma se inicializa un identificador unico a partir de la variable estatica proxNumEmpleado que se va incrementando en uno de forma automatica al crear una nueva instancia.
+    	Los métodos principales para esta clase son:\\
+    	
+    	\begin{itemize}
+    		\item {\texttt{toCSV()}}. Método que regresa una representación en formato CSV de la instancia Empleado.
+    	\end{itemize}
     	
     	\item {\bf{Manejador}}\\
+    	
+    	La clase Manejador, se diseño con el fin tener una clase que se encargue de administrar los datos del empleado y la sucursal por medio de  tablas Hash que son una estructura de datos implementada en Java por la clase HashMap.    Esta clase contiene los métodos principales de nuestro programa, que es el de agregar, eliminar, modificar y buscar por número de empleado.
+    	\begin{itemize}
+    		\item {\texttt{Manejador()}}.Correspode al constructor de la clase.
+    		\item {\texttt{agregaSucursal()}}.
+    		\item {\texttt{agregaEmpleado()}}
+    		\item {\texttt{eliminaSucursal()}}.
+    		\item {\texttt{eliminaEmpleado()}}.
+    		\item {\texttt{modificaSucursal()}}.
+    		\item {\texttt{modificaEmpleado()}}.
+    		\item {\texttt{buscaPorEmpleado()}}.
+    	\end{itemize}
     	
     	\item {\bf{Menu}}\\
     	
@@ -62,13 +86,13 @@
     	
     \end{enumerate} 
 
-    \subsection{Diferencias entre almacenar la información utilizando un sistema de archivos  a almacenarla en una base de datos. }
+    
     
     Se menciona 5 diferencias entre almacenar la información mediante un sitema de archivos a almacenarla en una base de datos:
     
     \begin{itemize}
     	\item Mientras mas entidades se tengan mas complicado se vuelve el manejo de las referencias.
-    	\item
+    	\item Inenficiencia para realizar consultas.
     \end{itemize}
     
 \end{document}
