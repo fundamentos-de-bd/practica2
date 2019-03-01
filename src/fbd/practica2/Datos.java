@@ -15,19 +15,17 @@ public class Datos{
             aa[k] = new Empleado("John", "Doe", p, "DummyRole", 0.01, 0);
         }
         try(
-            FileWriter ff = new FileWriter("Empleados.csv", false);
+            FileWriter ff = new FileWriter("Empleados.csv", false); 
+            FileWriter tt = new FileWriter("Sucursales.csv", false)
             ){
             ff.write("Nombre, apellidoP, apellidoM, rol, salario, numSucursal, numEmpleado\n");
             for(int k = 0; k < 90; ++k){
                 ff.write(aa[k].toCSV());
                 ff.write("\n");
             }
-            FileWriter ff = new FileWriter("Sucursales.csv", false);
-            ){
-            ff.write("Nombre, numSucursal\n");
-                ff.write("Sucursal_placeholder0, 0");
-                ff.write("\n");
-            }
+            tt.write("Nombre, numSucursal\n");
+            tt.write("Sucursal_placeholder0, 0");
+            tt.write("\n");
         }catch(IOException e){
             System.out.println("Algo salió mal :(");
             e.printStackTrace();

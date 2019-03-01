@@ -38,10 +38,10 @@ public class Sucursal implements CSV{
     }
 
     public String toCSV() {
-        return toString();
+        return nombre + ", " + numSucursal;
     }
 
     public String toString(){
-        return nombre + ", " + numSucursal;
+        return "Nombre sucursal: " + nombre + "\n Número sucursal: " + numSucursal;
     }
 }

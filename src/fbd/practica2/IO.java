@@ -6,16 +6,15 @@ import java.util.HashMap;
 import java.util.Collection;
 
 public class IO {
-
     
     /**
-    * Método que lee un archivo csv y recupera los datos de tipo Sucursal.
+    * Método que lee un archivo csv y recupera los datos de tipo correspondiente.
     * Busca el archivo con el nombre proporcionado y lo lee siguiendo el formato esperado.
     * en caso de que ocurra un error se aborta la lectura y regresa null.
     * @param nombrearchivo - String con el nombre del archivo a leer.
     * @return Map que contiene los datos con sus Id's como llaves ó null si ocurre algo.
     */
-    public static <T extends CSV> Map<Integer, T> leerSucursales(String nombrearchivo){
+    public static <T extends CSV> Map<Integer, T> leer(String nombrearchivo){
         HashMap<Integer, T> cosa = new HashMap<Integer, T>();
         String linea = "";
         try(
@@ -24,37 +23,15 @@ public class IO {
         {   
             while( (linea = ff.readLine()) != null){
                 String[] parse = linea.split(", ");
-                Sucursal.setProxNumSucursal(Integer.parseInt(parse[1]));
-                Sucursal k = new Sucursal(parse[0]);
-                cosa.put(k.getNumSucursal, k);
-            }
-        }catch(IOException e){
-            System.out.println("----Algo salió mal al intentar recuperar los datos----");
-            e.printStackTrace();
-            return null;
-        }
-        return cosa;
-    }
-    
-    /**
-    * Método que lee un archivo csv y recupera los datos de tipo Empleado.
-    * Busca el archivo con el nombre proporcionado y lo lee siguiendo el formato esperado.
-    * en caso de que ocurra un error se aborta la lectura y regresa null.
-    * @param nombrearchivo - String con el nombre del archivo a leer.
-    * @return Map que contiene los datos con sus Id's como llaves ó null si ocurre algo.
-    */
-    public static <T extends CSV> Map<Integer, T> leerEmpleados(String nombrearchivo){
-        HashMap<Integer, T> cosa = new HashMap<Integer, T>();
-        String linea = "";
-        try(
-            BufferedReader ff = new BufferedReader(new FileReader(nombrearchivo));
-            )
-        {   
-            while( (linea = ff.readLine()) != null){
-                String[] parse = linea.split(", ");
-                Empleado.setNumeroEmpleados(Integer.parseInt(parse[6]) );
-                Empleado f = new Empleado(parse[0], parse[1], parse[2], parse[3], Double.parseDouble(parse[4]), Integer.parseInt(parse[5]));
-                cosa.put(f.getNumEmpleado(), f);
+                if(parse.size > 2){
+                    Empleado.setNumeroEmpleados(Integer.parseInt(parse[6]) );
+                    Empleado f = new Empleado(parse[0], parse[1], parse[2], parse[3], Double.parseDouble(parse[4]), Integer.parseInt(parse[5]));
+                    cosa.put(f.getNumEmpleado(), T(f));
+                }else{
+                    Sucursal.setProxNumSucursal(Integer.parseInt(parse[1]));
+                    Sucursal k = new Sucursal(parse[0]);
+                    cosa.put(k.getNumSucursal(), T(k));
+                }
             }
         }catch(IOException e){
             System.out.println("----Algo salió mal al intentar recuperar los datos----");
@@ -89,5 +66,5 @@ public class IO {
         }
     return true;
     }
-
+    
 }
