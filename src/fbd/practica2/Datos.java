@@ -1,48 +1,35 @@
 package fbd.practica2;
-public class Datos{}
-/*
+
 import java.io.*;
-import org.json.*;
 
 public class Datos{
     
-    //Este método crea 90empleados
-    //Esta clase sólo sirve para crear un Empleados.json demo.
-    public static void testJSON(){
-        Sucursal S = null;
+    //Este método crea un archivo con 90 Empleado y otro con 1 Sucursal
+    //Esta clase sólo sirve para crear un Empleados.csv y Sucursales.csv demo.
+    public static void testCSV(){
         Empleado[] aa = new Empleado[90];
         for(int k = 0; k < 90; ++k){
             String p = String.valueOf(k);
             while(p.length() < 4)
                 p = "0" + p;
-            aa[k] = new Empleado("John", "Doe", p, "DummyRole", 0.01, S);
+            aa[k] = new Empleado("John", "Doe", p, "DummyRole", 0.01, 0);
         }
         try(
-            FileWriter ff = new FileWriter("Empleados.json", false);
+            FileWriter ff = new FileWriter("Empleados.csv", false); 
+            FileWriter tt = new FileWriter("Sucursales.csv", false)
             ){
-            ff.write("//Empleados 90\n");
+            ff.write("Nombre, apellidoP, apellidoM, rol, salario, numSucursal, numEmpleado\n");
             for(int k = 0; k < 90; ++k){
-                new JSONWriter(ff)
-                    .object()
-                        .key("nombre")
-                            .value(aa[k].getNombre())
-                        .key("apellidoPaterno")
-                            .value(aa[k].getApellidoPaterno())
-                        .key("apellidoMaterno")
-                            .value(aa[k].getApellidoMaterno())
-                        .key("puesto")
-                            .value(aa[k].getPuesto())
-                        .key("salario")
-                            .value(String.valueOf(aa[k].getSalario()))
-                        .key("sucursal")
-                            .value("null")
-                    .endObject();
-                    ff.write("\n");
+                ff.write(aa[k].toCSV());
+                ff.write("\n");
             }
+            tt.write("Nombre, numSucursal\n");
+            tt.write("Sucursal_placeholder0, 0");
+            tt.write("\n");
         }catch(IOException e){
             System.out.println("Algo salió mal :(");
             e.printStackTrace();
         }
     }
     
-}*/
+}
