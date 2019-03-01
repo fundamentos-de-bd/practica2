@@ -14,7 +14,7 @@ public class IO {
     * @param nombrearchivo - String con el nombre del archivo a leer.
     * @return Map que contiene los datos con sus Id's como llaves ó null si ocurre algo.
     */
-    public static <T extends CSV> Map<Integer, T> leer(String nombrearchivo){
+    public static <T extends CSV> HashMap<Integer, T> leer(String nombrearchivo){
         HashMap<Integer, T> cosa = new HashMap<Integer, T>();
         String linea = "";
         try(
@@ -49,7 +49,7 @@ public class IO {
     * @param c - Map que contiene los datos como valores.
     * @return true si se logró reescribir el archivo de la base de datos (Datos.json)
     */
-    public static <T extends CSV> boolean escribir(String nombrearchivo, Map<Integer, T> c){
+    public static <T extends CSV> boolean escribir(String nombrearchivo, HashMap<Integer, T> c){
         try(
             FileWriter ff = new FileWriter(nombrearchivo, false);
             )
