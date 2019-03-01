@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Scanner;
 
 /**
-Main
+Ejecutable del sistema
  */
 public class Practica2 {
     
