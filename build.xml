@@ -57,7 +57,7 @@
   <target name="clean">
     <delete file="practica2.jar"/>
     <delete dir="${build.dir}"/>
-    <delete dir="${doc.dir}"/>
+    <delete dir="${gendoc.dir}"/>
   </target>
 
 </project>
