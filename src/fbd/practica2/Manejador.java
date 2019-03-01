@@ -43,7 +43,7 @@ public class Manejador {
 
     /**
     Asigna la estrucutra de instancias de empleados.
-    @param sucursales Asinga la estrucutura de instancias de empleados
+    @param empleados Asinga la estrucutura de instancias de empleados
      */
     public void setEmpleados(HashMap<Integer, Empleado> empleados) {
         this.empleados = empleados;
@@ -147,6 +147,7 @@ public class Manejador {
     /**
     Busca una sucursal en base a alguno de sus empleados
     @param numEmpleado Indentificador del empleado de la sucursal
+    @return La sucursal donde trabaja el empleado dado
     @throws Exception Si el identificador no es válido o los datos no son correctos
      */
     public Sucursal buscaPorEmpleado(int numEmpleado) throws Exception{

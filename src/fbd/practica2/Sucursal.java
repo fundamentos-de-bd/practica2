@@ -51,7 +51,7 @@ public class Sucursal implements CSV{
     Obtiene en máximo número de identificadores de sucursales.
     @return El máximo identificador de las sucursales 
      */
-    public static int getProxNumSucursal(int nuevoNum) {
+    public static int getProxNumSucursal() {
         return proxNumSucursal;
     }
 

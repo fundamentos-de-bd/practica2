@@ -1,10 +1,10 @@
 package fbd.practica2;
 
 /**
-Clase para modelar empleados.
-@version 0.1
-@since 0.1
- */
+* Clase para modelar empleados.
+* @version 0.1
+* @since 0.1
+*/
 public class Empleado implements CSV{
     private String nombre;
     private String apellidoPaterno;
@@ -23,7 +23,7 @@ public class Empleado implements CSV{
     @param puesto Puesto del empleado
     @param salario Salario del empleado
     @param sucursal Número de sucursal donde trabaja el empleado
-     */
+    */
     public Empleado(String nombre, String apellidoPaterno, String apellidoMaterno, 
     String puesto, double salario, int sucursal) {
         this.nombre = nombre;
@@ -134,7 +134,7 @@ public class Empleado implements CSV{
 
     /**
     Asignar la sucursal donde el empleado trabaja
-    @param nuervaSucursal El identificador de la sucursal 
+    @param nuevaSucursal El identificador de la sucursal 
      */
     public void setNumSucursal(int nuevaSucursal){
         numSucursal = nuevaSucursal;
