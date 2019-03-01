@@ -95,6 +95,8 @@ public class Menu {
                 case 3: menuModifica(entidad);
                 break;
                 case 4: menuBuscar(entidad);
+                case 5: opcion = 5;
+                break;
                 default : System.out.println("Opción no válida");
             }
         }

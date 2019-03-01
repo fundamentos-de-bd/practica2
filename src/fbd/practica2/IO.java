@@ -23,14 +23,14 @@ public class IO {
         {   
             while( (linea = ff.readLine()) != null){
                 String[] parse = linea.split(", ");
-                if(parse.size > 2){
+                if(parse.length > 2){
                     Empleado.setNumeroEmpleados(Integer.parseInt(parse[6]) );
                     Empleado f = new Empleado(parse[0], parse[1], parse[2], parse[3], Double.parseDouble(parse[4]), Integer.parseInt(parse[5]));
-                    cosa.put(f.getNumEmpleado(), T(f));
+                    cosa.put(f.getNumEmpleado(), (T) f );
                 }else{
                     Sucursal.setProxNumSucursal(Integer.parseInt(parse[1]));
                     Sucursal k = new Sucursal(parse[0]);
-                    cosa.put(k.getNumSucursal(), T(k));
+                    cosa.put(k.getNumSucursal(), (T) k);
                 }
             }
         }catch(IOException e){

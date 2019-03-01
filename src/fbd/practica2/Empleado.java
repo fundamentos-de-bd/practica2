@@ -1,7 +1,7 @@
 package fbd.practica2;
 
 /**
-Clase para modelar empleados
+Clase para modelar empleados.
 @version 0.1
 @since 0.1
  */
@@ -43,7 +43,7 @@ public class Empleado implements CSV{
     public String toCSV(){
         return nombre + ", " + apellidoPaterno + ", " + apellidoMaterno + ", " 
         + puesto + ", " + String.valueOf(salario) + ", " 
-        + String.valueOf(salario) + ", " + String.valueOf(salario);
+        + String.valueOf(numSucursal) + ", " + String.valueOf(numeroEmpleado);
     }
 
     /**
