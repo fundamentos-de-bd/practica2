@@ -19,6 +19,7 @@ public class IO {
     * @see fbd.practica2.CSV
     * @return Map que contiene los datos con sus Id's como llaves ó null si ocurre algo.
     */
+    @SuppressWarnings("unchecked")
     public static <T extends CSV> HashMap<Integer, T> leer(String nombrearchivo){
         HashMap<Integer, T> cosa = new HashMap<Integer, T>();
         String linea = "";
