@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="practica2" default="practica2.jar" basedir="." >
 
-  <property name="build.dir" value="build" /> 
+  <property name="target.dir" value="target" /> 
   <property name="src.dir"   value="src" />
   <!--<property name="lib.dir"   value="lib" /> -->
   <property name="gendoc.dir"   value="gendoc" />
 
   <target name="practica2.jar" depends="compile.practica2">
     <jar jarfile="practica2.jar">
-      <zipfileset dir="${build.dir}" prefix="" />
+      <zipfileset dir="${target.dir}" prefix="" />
       <manifest>
         <attribute name="Main-Class" value="fbd.practica2.Practica2"/>
       </manifest>
@@ -16,9 +16,9 @@
   </target>
 
   <target name="compile.practica2">
-    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${target.dir}"/>
     <javac srcdir="${src.dir}"
-           destdir="${build.dir}"
+           destdir="${target.dir}"
            debug="true"
            debuglevel="lines,vars,source"
            includeantruntime="false"
@@ -56,7 +56,7 @@
 
   <target name="clean">
     <delete file="practica2.jar"/>
-    <delete dir="${build.dir}"/>
+    <delete dir="${target.dir}"/>
     <delete dir="${gendoc.dir}"/>
   </target>
 
