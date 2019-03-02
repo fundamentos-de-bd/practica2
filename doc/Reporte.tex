@@ -68,27 +68,45 @@
     	
     	\item {\bf{Manejador}}\\
     	
-    	La clase Manejador, se diseño con el fin tener una clase que se encargue de administrar los datos del empleado y la sucursal por medio de  tablas Hash que son una estructura de datos implementada en Java por la clase HashMap.    Esta clase contiene los métodos principales de nuestro programa, que es el de agregar, eliminar, modificar y buscar por número de empleado.
+    	La clase Manejador, se diseño con el fin tener una clase que se encargue de administrar los datos del empleado y la sucursal por medio de  tablas Hash que son una estructura de datos implementada en Java por la clase HashMap, por lo tanto se tendrá una tabla hash para empleados y otra para sucursales.    Esta clase contiene los métodos principales de nuestro programa, que es el de agregar, eliminar, modificar y buscar por número de empleado.
     	\begin{itemize}
-    		\item {\texttt{Manejador()}}.Correspode al constructor de la clase.
-    		\item {\texttt{agregaSucursal()}}.
-    		\item {\texttt{agregaEmpleado()}}
-    		\item {\texttt{eliminaSucursal()}}.
-    		\item {\texttt{eliminaEmpleado()}}.
-    		\item {\texttt{modificaSucursal()}}.
-    		\item {\texttt{modificaEmpleado()}}.
-    		\item {\texttt{buscaPorEmpleado()}}.
+    		\item {\texttt{Manejador()}}.Corresponde al constructor de la clase que inicializa las tablas hash.
+    		\item {\texttt{agregaSucursal()}}. Agrega una instancia de Sucursal a la tabla hash sucursales.
+    		\item {\texttt{agregaEmpleado()}}. Agrega una instancia de Empleado a la tabla hash empleados.
+    		\item {\texttt{eliminaSucursal()}}. Elimina una sucursal usando el numero de identificador de la sucursal.
+    		\item {\texttt{eliminaEmpleado()}}. Elimia un empleado usando el numero de identificador del empleado.
+    		\item {\texttt{modificaSucursal()}}.Este método modifica el nombre de la sucursal. 
+    		\item {\texttt{modificaEmpleado()}}.En este método se puede modificar alguno de los atributos de la entidad empleado utilizando el número de identificador del empleado.
+    		\item {\texttt{buscaPorEmpleado()}}.Este método regresará el número de sucursal utilizando el numero del empleado.
     	\end{itemize}
     	
     	\item {\bf{Menu}}\\
     	
+    	Esta clase es necesaria para la interacción entre el usuario y la aplicación desde la terminal. 
+    	
+    	\begin{itemize}
+    		
+    		\item {\texttt{guardaBD()}}. Guarda la nueva información proporcionada en los archivos de la base de datos.
+    		\item {\texttt{leerBD()}}. Carga la información de la base de datos en dos tablas hash  
+    		para después asignarselas a un objeto de la clase Manejador.
+    		\item {\texttt{iniciaMenu()}}.Este método lee los archivos de la base de datos, después inicia el menú principal y guarda la información.
+    		\item {\texttt{menuPrincipal()}}. El método se encarga de darle la bienvenida al usuario pidiendole información acerca de que entidad  quiere consultar (Sucursal o Empleado). 
+    		\item {\texttt{menuAcciones()}}.Este método recibe el parámetro que se intrudujo en el menú principal y despliega un menú de opciones acerca de las acciones que desea realizar, ya sea el de  agregar, eliminar, modificar o buscar.
+    		\item {\texttt{menuElimina()}}. Recibe el parámetro proporcionado en el menú principal para poder eliminar la información de una sucursal o de un empleado, para eso es necesario pedirle al usuario el numero de sucursal o el numero de empleado respectivamente.
+    		\item {\texttt{menuAgrega()}}. Se le pide al usuario que ingrese la información con un formato especifico para poder agregar una nueva instancia de la entidad deseada.
+    		\item {\texttt{menuModifica()}}. El usuario debe elegir que atributo desea modificar ingresando el número de identificador de acuerdo a la entidad elegida e ingresar la nueva información.
+    		\item {\texttt{menuBuscar()}}. Simplemente se muestra un mensaje que le pide al usuario que ingrese el numero de empleado para después regresar el número de sucursal a la que pertenece.
+    	\end{itemize}
+    	
     	\item {\bf{IO}}\\
+    	
+    	Esta clase se encarga de leer y escribir los archivos u objetos en formato CSV. Por lo tanto existen dos métodos. Esta el método {\texttt{leer}} que lee un archivo CSV y devuelve una tabla hash que contiene la información y también se encuentra el método {\texttt{escribir}} que escribe un archivo CSV con los datos proporcionados.\\
     	
     \end{enumerate} 
 
     
     
-    Se menciona 5 diferencias entre almacenar la información mediante un sitema de archivos a almacenarla en una base de datos:
+    \noindent Se menciona 5 diferencias entre almacenar la información mediante un sitema de archivos a almacenarla en una base de datos:
     
     \begin{itemize}
     	\item Mientras mas entidades se tengan mas complicado se vuelve el manejo de las referencias.
