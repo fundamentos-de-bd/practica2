@@ -35,9 +35,9 @@
     \maketitle
     
     \section{Implementación del programa en Java}\vspace{0.5cm}
-    En esta practica se hace un avance del caso de uso enfoncadonos unicamente en la información de las sucursales y empleados, así que se implementa  un programa que solicita la información y lo guarda en un archivo CSV.
+    En esta practica se hace un avance del caso de uso enfoncadonos unicamente en la información de las sucursales y empleados, así que se implementa  un programa escrito en Java que simulará una base de datos, solicita la información y lo guarda en un archivo CSV.
     
-    De acuerdo a los requerimientos solicitados en el caso de uso, para los empleados se almacena su información básica: nombre, apellido paterno, apellido materno, puesto salario y sucursal a la que pertenece, se pueden guardar empleados siempre y cuando esten asociados a una sucursal existente, además al registrar un empleado se le genera  un identificador.
+    De acuerdo a los requerimientos solicitados en el caso de uso, para los empleados se almacena su información básica: nombre, apellido paterno, apellido materno, puesto salario y sucursal a la que pertenece, se pueden guardar empleados siempre y cuando esten asociados a una sucursal existente, además al registrar un empleado se le genera  un identificador. La información de una sucursal consistirá en el nombre y su identidicador.
     
     El programa permite agregar, eliminar y modificar sucursales o empleados, además tenemos
     la opción de buscar una sucursal mediante el identificador de un empleado.\\
@@ -109,8 +109,9 @@
     \noindent Se menciona 5 diferencias entre almacenar la información mediante un sitema de archivos a almacenarla en una base de datos:
     
     \begin{itemize}
+    	
     	\item Mientras mas entidades se tengan mas complicado se vuelve el manejo de las referencias.
-    	\item Inenficiencia para realizar consultas.
+    	\item Ineficiencia para realizar consultas.
     \end{itemize}
     
 \end{document}
