@@ -13,7 +13,7 @@ public class IO {
     /**
     * Método que lee un archivo csv y recupera los datos de tipo correspondiente.
     * Busca el archivo con el nombre proporcionado y lo lee siguiendo el formato esperado.
-    * en caso de que ocurra un error se aborta la lectura y regresa null.
+    * en caso de que ocurra un error se crea un archivo en blanco y tegresa un HashMap vacio
     * @param nombrearchivo - String con el nombre del archivo a leer.
     * @param <T> El tipo de objeto que se va a leer. Tiene que tener implemetnar 
     * @see fbd.practica2.CSV
@@ -40,9 +40,9 @@ public class IO {
                 }
             }
         }catch(IOException e){
-            System.out.println("----Algo salió mal al intentar recuperar los datos----");
-            e.printStackTrace();
-            return null;
+            System.out.println("----Algo salió mal al intentar recuperar los datos----\n    se creará un nuevo archivo en blanco");
+            new File("./database").mkdirs();
+            escribir(nombrearchivo, cosa);
         }
         return cosa;
     }
@@ -67,8 +67,7 @@ public class IO {
                 ff.write("\n");
             }
         }catch(IOException ex){
-            System.out.println("Algo salió mal :(");
-            ex.printStackTrace();
+            System.out.println(" ---No fue posible escribir los cambios---");
             return false;
         }
     return true;
